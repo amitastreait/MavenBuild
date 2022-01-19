@@ -20,14 +20,14 @@ node('') {
 	}
 	
 	stage ('Deployment'){
-		deploy adapters: [tomcat9(credentialsId: 'TomcatCreds', path: '', url: 'http://3.84.47.228:8080/')], contextPath: 'counterwebapp', war: 'target/*.war'
+		deploy adapters: [tomcat9(credentialsId: 'MyTomCat', path: '', url: 'http://3.83.114.63:8080/')], contextPath: 'counterwebapp', war: 'target/*.war'
 	}
 	
 	stage ('Notification'){
 		emailext (
 		      subject: "Job Completed",
 		      body: "Jenkins Pipeline Job for Maven Build got completed !!!",
-		      to: "build-alerts@example.com"
+		      to: "sfdcpanther@gmail.com"
 		    )
 	}
 }
